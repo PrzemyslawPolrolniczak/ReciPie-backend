@@ -1,4 +1,4 @@
-import DatabaseMiddleware from "./databaseMiddleware";
+import DatabaseMiddleware from "./DatabaseMiddleware";
 
 const { GraphQLServer } = require("graphql-yoga");
 
@@ -22,7 +22,7 @@ const resolvers: object = {
   Query: {
     info: () => "This is recipie app API",
     recipes: () => recipie.makeQuery(),
-    recipe: (_, param: object) => recipie.makeQuery(param)
+    recipe: (_: undefined, param: object) => recipie.makeQuery(param)
   }
 };
 

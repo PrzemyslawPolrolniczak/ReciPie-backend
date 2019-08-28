@@ -12,7 +12,7 @@ class DatabaseMiddleware {
   private connection: any;
 
   private async connect() {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve: Function, reject: Function) => {
       MongoClient.connect(this.url, (err: Error, client: any) => {
         if (err) {
           console.error("Error: ", err);
@@ -28,7 +28,7 @@ class DatabaseMiddleware {
   }
 
   private get(query: object) {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve: Function, reject: Function) => {
       this.collection.find(query).toArray((err: Error, docs: any) => {
         if (err) return reject(err);
         resolve(docs);
