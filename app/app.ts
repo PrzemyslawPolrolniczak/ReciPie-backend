@@ -10,11 +10,45 @@ type Query {
 }
 
 type Recipe {
-  id: ID
+  _id: ID
   name: String
-  tags: [String]
   difficulty: String
+  meals: [Meals]
   time: String
+  cleaning: String
+  tags: [String]
+  macro: Macro
+  ingredients: [Ingredients]
+  preparation: [String]
+}
+
+enum Meals {
+  breakfast
+  brunch
+  lunch
+  tea
+  dinner
+  snack
+}
+
+type Macro {
+  kcal: Int
+  protein: Int
+  carb: Int
+  fat: Int
+  percentage: PrecentageMacro
+}
+
+type PrecentageMacro {
+  protein: String
+  carb: String
+  fat: String
+}
+
+type Ingredients {
+  name: String
+  quant: String
+  price: Int
 }
 `;
 
